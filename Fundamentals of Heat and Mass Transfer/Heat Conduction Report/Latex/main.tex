@@ -1,0 +1,122 @@
+\documentclass{article}
+
+%语言页面以及字体设置
+\usepackage{ctex}
+\usepackage{a4}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{xeCJK}
+\usepackage{fontsize}
+\usepackage{subfigure}
+\usepackage{subcaption}
+
+%其他宏包
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{appendix}
+\usepackage{listings,matlab-prettifier}
+
+
+\lstset{style=Matlab-editor,numbers = left,frame = single,}
+
+\title{\HUGEr \bf \kaishu 非采暖房间温度估算}
+\author{葛逸凡 \quad 3210103331}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{问题描述以及模型设置}
+
+\input{section/section1.tex}
+
+\section{有限差分法求解非稳态热传导方程}
+
+\input{section/section2}
+
+\section{隔壁房间温度估算}
+
+对于隔壁房间，分别分析开暖气、地暖和空调的情况。同时考虑墙壁的导热效果对房间温度的影响，简化为;
+\begin{equation}
+    \begin{aligned}
+    q''_s &= -k_{wall}\frac{T_s - T_{\infty}}{L_{wall}} \\
+    T_{x+dx} &= T_x +  \frac{T_s - T_{\infty}}{L_{wall}}dx
+    \end{aligned}
+\end{equation}
+    
+
+
+将隔壁房间墙壁处的平均温度作为所处房间的边界条件。
+
+\subsection{暖气}
+
+\input{section/section3.1}
+
+\subsection{地暖}
+
+\input{section/section3.2}
+
+\subsection{冷气}
+
+\input{section/section3.3}
+
+\newpage
+
+\section{非采暖房间温度估算}
+
+对待测房间，设置其上下左右房间都开启暖气/空调,由于下方以及左右房间地暖开启对待测房间影响不大，因此只考虑上方房间的地暖。即房间的边界条件为：
+\begin{equation}
+    \begin{cases}
+    -k\frac{\partial \boldsymbol{T}}{\partial x}\big|_{x=0} = q'' \\
+    \boldsymbol{T}(:,0,t) = T_{next} \\
+    \boldsymbol{T}(:,L_y,t) = T_{next} \\
+    \boldsymbol{T}(L_x,:,t) = T_{next}
+    \end{cases}
+    \label{boundary}
+\end{equation}
+
+\subsection{冬天}
+
+\input{section/section4.1}
+
+\subsection{夏天}
+
+\input{section/section4.2}
+
+综上所述，可知在冬天或夏天时，隔壁房间打开空调会对所处房间的温度分布有着较为明显的影响，经计算，平均能够节约$20\%$的电费。但是本文的计算结果并不精确，原因有以下几点：
+\begin{itemize}
+    \item 房间的物理模型过于简化，无论是房间的尺寸还是承重墙的参数，亦或是空调和地暖的布局都过于艰难，无法对真实的户型的温度分布提供参考
+    \item 传热过程过于简化，本文仅仅将空调和地暖分别简化为了第一类边界条件和第二类边界条件，事实上在分析开暖气/冷气的房间温度分布时还需要考虑对流传热的影响；以及直接将隔壁房间的平均温度作为待测房间的边界条件也过于草率。
+    \item 本文在编写代码时为了避免出现不收敛的结果，对许多物理参数进行了调整，在时间上出现了较大的失真
+\end{itemize}
+
+但是本文分析所得的结果仍然能够对非采暖房间的温度分布估算提供定性的参考，为了进一步完善模型，接下来对其他影响待测房间温度分布的因素进行分析。
+
+\section{其他影响因素}
+
+\input{section/section5}
+
+\begin{thebibliography}{99}  
+\bibitem{ref1}李镒如. 家用空调器供暖对室内热环境影响研究[D].哈尔滨工业大学,2021.
+\bibitem{ref2}范征宇,肖子一,刘加平.多气候区不同窗墙比下功能布局对办公建筑能耗的影响[J].建筑节能(中英文),2023,51(06):18-23+31.
+\end{thebibliography}
+
+\newpage
+\begin{appendices}
+    \section{附录：估算隔壁房间温度时使用的代码}
+
+    \input{section/code-nextroom}
+        
+    \section{附录：估算非采暖房间温度时使用的代码}
+
+    \input{section/code-mainroom}
+\end{appendices}
+
+
+\end{document}

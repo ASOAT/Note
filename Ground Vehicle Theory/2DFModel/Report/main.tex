@@ -1,0 +1,43 @@
+\documentclass{article}
+
+%语言页面以及字体设置
+\usepackage{ctex}
+\usepackage{a4}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{xeCJK}
+\usepackage{fontsize}
+\usepackage{subfigure}
+\usepackage{subcaption}
+
+%其他宏包
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+%插入代码
+\usepackage{listings,matlab-prettifier}
+\lstset{style=Matlab-editor,numbers = left,frame = single,}
+
+
+\title{Bicycle Model Handling Simulation}
+\author{葛逸凡 3210103331 使用Matlab R2022b}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{simulink模型搭建}
+
+\input{sections/simulink.tex}
+
+\section{习题作答}
+
+\input{sections/homework.tex}
+
+\section{使用Simulink模型进行进一步探究}
+
+\input{sections/section3.tex}
+
+\end{document}

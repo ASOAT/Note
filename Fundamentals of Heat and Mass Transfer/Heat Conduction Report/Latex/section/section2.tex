@@ -1,0 +1,93 @@
+\subsection{公式推导}
+
+对于二维非稳态传热过程,不考虑内热源有：
+\begin{equation}\label{二维非稳态传热}
+    \frac{\partial T}{\partial t} = a^2(\frac{\partial^2 T}{\partial x^2}+\frac{\partial^2 T}{\partial y^2})
+\end{equation}
+
+考虑二阶导数$\partial^2 T/\partial x^2$，该导数在$(m,n)$处的值可以近似写为：
+\begin{equation}\label{x非稳态传热}
+    \frac{\partial^2 T}{\partial x^2}\big|_{m,n} \approx \frac{\partial T/\partial x\big|_{m+\frac{1}{2},n}-\partial T/\partial x\big|_{m-\frac{1}{2},n}}{\Delta x}
+\end{equation}
+
+其中：
+\begin{equation}
+    \frac{\partial T}{\partial x}\big|_{m+\frac{1}{2},n} \approx \frac{T_{m+1,n}-T_{m,n}}{\Delta x}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial T}{\partial x}\big|_{m-\frac{1}{2},n} \approx \frac{T_{m,n}-T_{m-1,n}}{\Delta x}
+\end{equation}
+
+因此\eqref{x非稳态传热}可以写作：
+\begin{equation}\label{x方向二阶导数离散化}
+    \frac{\partial^2 T}{\partial x^2}\big|_{m,n} \approx \frac{T_{m+1,n}+T_{m-1,n}-2T_{m,n}}{(\Delta x)^2}
+\end{equation}
+
+同理，对于二阶导数$\partial^2 T/\partial y^2$也有：
+\begin{equation}\label{y方向二阶导数离散化}
+    \frac{\partial^2 T}{\partial y^2}\big|_{m,n} \approx \frac{T_{m,n+1}+T_{m,n-1}-2T_{m,n}}{(\Delta y)^2}
+\end{equation}
+
+考虑一阶导数$\partial T/\partial t$,该导数可以近似写成:
+\begin{equation}
+    \frac{\partial T}{\partial t} \approx \frac{T^{N+1} - T^N}{\Delta t}
+\end{equation}
+
+式中$N$表示当前时刻，有$t =(N-1)\Delta t$.\eqref{二维非稳态传热}可以写作：
+\begin{equation}
+    \begin{aligned}
+        T^{N+1} &= \frac{\partial T}{\partial t} \cdot \Delta t + T^N \\
+                &= T^N + a^2(\frac{\partial^2 T}{\partial x^2}+\frac{\partial^2 T}{\partial y^2})\Delta t\\
+                &= T^N +a^2(\frac{T_{m+1.n}+T_{m-1,n}-2T_{m,n}}{(\Delta x)^2}+\frac{T_{m.n+1}+T_{m,n-1}-2T_{m,n}}{(\Delta y)^2})\Delta t
+    \end{aligned}
+\end{equation}
+
+为了方便代码的编写，将公式推广到矩阵。设$x$方向步长为$dx$，$y$方向步长为$dy$，时间步长为$dt$。$x=(i-1)dx,y=(j-1)dy,t=(N-1)dt,N_x=L_x/dx,N_y=L_y/dy$,.则有温度分布矩阵：
+\begin{equation}
+\boldsymbol{T^N} =
+    \begin{pmatrix}
+        T_{11}^N        & \cdots & T_{1  N_y+1}^N   \\
+        \vdots          &        & \vdots           \\
+        T_{N_x+1 1}^N   & \cdots & T_{N_x+1 N_y+1}^N\\
+    \end{pmatrix}
+\end{equation}
+
+\eqref{x方向二阶导数离散化}可以写作：
+\begin{equation}
+    \frac{\partial^2 \boldsymbol{T^N}}{\partial x^2} =\frac{1}{dx^2}\boldsymbol{A}\boldsymbol{T^N}
+\end{equation}
+
+其中$\boldsymbol{A}$为系数矩阵，
+\begin{equation}
+\boldsymbol{A} =
+    \begin{pmatrix}
+        -2 &   1 & 0  & \cdots  \\
+        1  &  -2 & 1  &  \\
+        0  &   1 & \ddots &        & \vdots \\
+        \vdots \\
+    \end{pmatrix}
+\end{equation}
+
+\eqref{y方向二阶导数离散化}写作：
+\begin{equation}
+    \frac{\partial^2 \boldsymbol{T^N}}{\partial y^2} = (\frac{1}{dy^2}\boldsymbol{A}\boldsymbol{T^N}^T)^T = \frac{1}{dy^2}\boldsymbol{T^N}\boldsymbol{A}
+\end{equation}
+
+得到：
+\begin{equation}\label{final equation}
+    \boldsymbol{T^{N+1} = \boldsymbol{T^N}} + a^2(\frac{1}{dx^2}\boldsymbol{A}\boldsymbol{T^N}+\frac{1}{dy^2}\boldsymbol{T^N}\boldsymbol{A}) dt  
+\end{equation}
+
+在写代码时，由于$dt$取的数值极小(0.001s),因此可以将$\boldsymbol{T^{N+1}}$用$\boldsymbol{T^N}$代替，减少复杂度。
+
+\subsection{边界条件}
+
+主要考虑第二类边界条件：
+\begin{equation}
+    \frac{\partial T}{\partial x} = -q''_s/k
+\end{equation}
+有：
+\begin{equation}
+    T_{x+dx} = T_x -\frac{q''_s}{k}dx
+\end{equation}

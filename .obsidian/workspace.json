@@ -1,0 +1,212 @@
+{
+  "main": {
+    "id": "5da44ed8f3a03ee9",
+    "type": "split",
+    "children": [
+      {
+        "id": "57ec49fe185d1034",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7756900ccbf15f85",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dynamics of Motor Vehicles/Homework/Homework 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "eee752ea4c137ef3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "616258cf69f0ba2d",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Dynamics of Motor Vehicles/Homework/HW1_20November 2023.pdf"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "735a1be11a839a10",
+    "type": "split",
+    "children": [
+      {
+        "id": "960d811c02a97764",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5a416c619f07bf6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8b4acda8c80068b2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a008634a53731cd4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "47a09edd698d6a6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "3206fb378df03ddc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55a61f51d7b2b3a3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Dynamics of Motor Vehicles/Homework/HW1_20November 2023.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "81dfeb119118f60a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Dynamics of Motor Vehicles/Homework/HW1_20November 2023.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e085bf411b57affd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c8e16f1a0cf508dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Dynamics of Motor Vehicles/Homework/HW1_20November 2023.pdf"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
+    }
+  },
+  "active": "616258cf69f0ba2d",
+  "lastOpenFiles": [
+    "Dynamics of Motor Vehicles/Homework/Homework 1.md",
+    "Dynamics of Motor Vehicles/Homework/HW1_20November 2023.pdf",
+    "WorkFlow.md",
+    "Ground Vehicle Theory/2DFModel/Report/main.pdf",
+    "README.md",
+    "Ground Vehicle Theory/Drifting/Drifting.md",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231204114358.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231204114322.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231204114252.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231204114225.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231203205107.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231204114049.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231130220203.png",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231130201204.png",
+    "Ground Vehicle Theory/Drifting/附件/336163e6006bf9a545feba1a217d6ab.png",
+    "Ground Vehicle Theory/Drifting/Drifting Along a General Path.pdf",
+    "Ground Vehicle Theory/Drifting/附件/Pasted image 20231203205053.png",
+    "Ground Vehicle Theory/Drifting/附件",
+    "Ground Vehicle Theory/Drifting/GHW/spin.slx.autosave",
+    "Ground Vehicle Theory/Drifting/GHW/v.mat",
+    "Ground Vehicle Theory/Drifting/GHW/untitled.mat",
+    "Ground Vehicle Theory/Drifting/GHW/delta.mat",
+    "Ground Vehicle Theory/Drifting/GHW/spin.slx.bak",
+    "Ground Vehicle Theory/Drifting/GHW/V.mat",
+    "Excalidraw/Drawing 2023-11-20 09.15.15.excalidraw.md",
+    "Dynamics of Motor Vehicles/Introduction.md",
+    "Dynamics of Motor Vehicles/Tire Mechanics.md",
+    "Horizon Racing Team/2023-10-29 车身和空气动力学工作方案.md",
+    "Fundamentals of Heat and Mass Transfer/对流导论.md",
+    "TireMechanic10.png.md",
+    "Excalidraw/Drawing 2023-11-20 09.10.19.excalidraw.md",
+    "Feedback Control of Dynamic Systems/Time and Frequency Domain.md",
+    "Ground Vehicle Theory/电子稳定性程序ESP全家桶（行驶动力学闭环控制）.md",
+    "Fundamentals of Automotive Power Systems/内燃动力经济性指标与影响因素.md",
+    "Fundamentals of Automotive Power Systems/Presentation/HCCI 均质充量压燃.md",
+    "Feedback Control of Dynamic Systems/3 动态响应.md",
+    "Excalidraw/Drawing 2023-10-26 19.42.16.excalidraw.md",
+    "Fundamentals of Heat and Mass Transfer/Heat Conduction Report/Code/Some Code with Problem.md",
+    "Fundamentals of Heat and Mass Transfer/高维非扩散问题的研究.md",
+    "Fundamentals of Heat and Mass Transfer/有限差分法.md",
+    "Feedback Control of Dynamic Systems/2 动态模型.md",
+    "Horizon Racing Team/Conference Records/2023-10-22 第一次全体会议.md",
+    "未命名.canvas"
+  ]
+}
